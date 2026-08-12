@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}Upload Document - Plagiarism Detection System{% endblock %}
+
+{% block content %}
+<div class="upload-page">
+    <div class="page-header">
+        <h1>Upload Document for Plagiarism Check</h1>
+        <p>Submit PDF or DOCX files for analysis</p>
+    </div>
+    
+    <div class="upload-container">
+        <form method="POST" enctype="multipart/form-data" class="upload-form">
+            <div class="form-group">
+                <label for="student_name">Student Name *</label>
+                <input type="text" id="student_name" name="student_name" 
+                       class="form-control" required 
+                       placeholder="Enter student name">
+            </div>
+            
+            <div class="form-group">
+                <label for="student_id">Student ID *</label>
+                <input type="text" id="student_id" name="student_id" 
+                       class="form-control" required 
+                       placeholder="Enter student ID">
+            </div>
+            
+            <div class="form-group">
+                <label for="file">Document File *</label>
+                <div class="file-upload-area" id="fileUploadArea">
+                    <input type="file" id="file" name="file" 
+                           class="form-control-file" required 
+                           accept=".pdf,.docx">
+                    <div class="file-upload-label">
+                        <div class="upload-icon">📁</div>
+                        <p>Click to select file or drag and drop</p>
+                        <p class="file-info">Accepted formats: PDF, DOCX (Max 16MB)</p>
+                    </div>
+                    <div id="fileName" class="file-name"></div>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-lg">
+                    Upload and Check Plagiarism
+                </button>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary btn-lg">Cancel</a>
+            </div>
+        </form>
+    </div>
+    
+    <div class="info-box">
+        <h3>📝 Important Notes</h3>
+        <ul>
+            <li>Only PDF and DOCX files are accepted</li>
+            <li>Maximum file size: 16MB</li>
+            <li>Files are stored securely for comparison</li>
+            <li>References and bibliography sections are automatically excluded</li>
+            <li>Processing time depends on document size and number of stored documents</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    // File upload interface enhancement
+    const fileInput = document.getElementById('file');
+    const fileUploadArea = document.getElementById('fileUploadArea');
+    const fileName = document.getElementById('fileName');
+    
+    fileInput.addEventListener('change', function() {
+        if (this.files && this.files[0]) {
+            fileName.textContent = '✓ ' + this.files[0].name;
+            fileUploadArea.classList.add('has-file');
+        }
+    });
+    
+    // Drag and drop
+    fileUploadArea.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        this.classList.add('drag-over');
+    });
+    
+    fileUploadArea.addEventListener('dragleave', function() {
+        this.classList.remove('drag-over');
+    });
+    
+    fileUploadArea.addEventListener('drop', function(e) {
+        e.preventDefault();
+        this.classList.remove('drag-over');
+        
+        if (e.dataTransfer.files.length) {
+            fileInput.files = e.dataTransfer.files;
+            fileName.textContent = '✓ ' + e.dataTransfer.files[0].name;
+            this.classList.add('has-file');
+        }
+    });
+</script>
+{% endblock %}

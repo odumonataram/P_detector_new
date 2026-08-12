@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Plagiarism Detection System{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Welcome to Plagiarism Detection System</h1>
+    <p class="hero-subtitle">Professional plagiarism checking with comprehensive reporting</p>
+    
+    <div class="features">
+        <div class="feature-card">
+            <div class="feature-icon">📄</div>
+            <h3>Upload Documents</h3>
+            <p>Support for PDF and DOCX files</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Detect Plagiarism</h3>
+            <p>Advanced similarity detection using TF-IDF</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Detailed Reports</h3>
+            <p>Comprehensive reports with charts and highlights</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">⚙️</div>
+            <h3>Admin Dashboard</h3>
+            <p>Monitor submissions and view statistics</p>
+        </div>
+    </div>
+    
+    <div class="cta-buttons">
+        <a href="{{ url_for('upload') }}" class="btn btn-primary btn-lg">Upload Document</a>
+        <a href="{{ url_for('view_submissions') }}" class="btn btn-secondary btn-lg">View Submissions</a>
+    </div>
+</div>
+
+<div class="info-section">
+    <h2>How It Works</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Upload</h3>
+            <p>Submit your document (PDF or DOCX) with student information</p>
+        </div>
+        
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Analyze</h3>
+            <p>System compares against all stored documents using advanced algorithms</p>
+        </div>
+        
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Report</h3>
+            <p>Receive detailed report with highlighted sections and similarity scores</p>
+        </div>
+        
+        <div class="step">
+            <div class="step-number">4</div>
+            <h3>Review</h3>
+            <p>Download reports and view statistics in admin dashboard</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

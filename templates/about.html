@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}About - Plagiarism Detection System{% endblock %}
+
+{% block content %}
+<div class="about-page">
+    <div class="page-header">
+        <h1>About Plagiarism Detection System</h1>
+    </div>
+    
+    <div class="about-content">
+        <section class="about-section">
+            <h2>Overview</h2>
+            <p>
+                This plagiarism detection system is designed to help educators and students identify 
+                potential plagiarism in academic documents. Using advanced text analysis algorithms, 
+                the system compares submitted documents against a database of previously submitted work.
+            </p>
+        </section>
+        
+        <section class="about-section">
+            <h2>Features</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <h3>📄 Multi-Format Support</h3>
+                    <p>Supports PDF and DOCX document formats</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>🔍 Advanced Detection</h3>
+                    <p>Uses TF-IDF vectorization and cosine similarity for accurate detection</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>📊 Comprehensive Reports</h3>
+                    <p>Detailed reports with highlighted sections, charts, and statistics</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>🎨 Color-Coded Highlights</h3>
+                    <p>Visual representation of similarity levels (Green: 0-20%, Yellow: 21-50%, Orange: 51-80%, Red: 81-100%)</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>📈 Analytics Dashboard</h3>
+                    <p>Admin dashboard with statistics and trends</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>🔒 Local Storage</h3>
+                    <p>All data stored locally without external database dependencies</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="about-section">
+            <h2>How It Works</h2>
+            <ol class="process-list">
+                <li>
+                    <strong>Upload:</strong> Students or lecturers upload documents with student information
+                </li>
+                <li>
+                    <strong>Text Extraction:</strong> System extracts text from PDF or DOCX files
+                </li>
+                <li>
+                    <strong>Preprocessing:</strong> Text is cleaned, normalized, and tokenized
+                </li>
+                <li>
+                    <strong>Comparison:</strong> Document is compared against all stored submissions using TF-IDF and cosine similarity
+                </li>
+                <li>
+                    <strong>Analysis:</strong> Matching sections are identified and scored
+                </li>
+                <li>
+                    <strong>Report Generation:</strong> Comprehensive report is created with highlights, charts, and metadata
+                </li>
+            </ol>
+        </section>
+        
+        <section class="about-section">
+            <h2>Technology Stack</h2>
+            <ul class="tech-list">
+                <li><strong>Backend:</strong> Python, Flask</li>
+                <li><strong>Text Processing:</strong> NLTK, scikit-learn</li>
+                <li><strong>Document Handling:</strong> python-docx, pdfplumber</li>
+                <li><strong>Visualization:</strong> Matplotlib, Seaborn</li>
+                <li><strong>Storage:</strong> JSON-based local file system</li>
+            </ul>
+        </section>
+        
+        <section class="about-section">
+            <h2>Similarity Color Legend</h2>
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #90EE90;"></span>
+                    <div>
+                        <strong>0-20% (Green)</strong>
+                        <p>Low similarity - Acceptable</p>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #FFFF99;"></span>
+                    <div>
+                        <strong>21-50% (Yellow)</strong>
+                        <p>Moderate similarity - Review recommended</p>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #FFB366;"></span>
+                    <div>
+                        <strong>51-80% (Orange)</strong>
+                        <p>High similarity - Investigation needed</p>
+                    </div>
+                </div>
+                
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #FF6B6B;"></span>
+                    <div>
+                        <strong>81-100% (Red)</strong>
+                        <p>Very high similarity - Likely plagiarism</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="about-section">
+            <h2>Important Notes</h2>
+            <ul>
+                <li>The system automatically excludes References and Bibliography sections from comparison</li>
+                <li>All uploaded documents are stored locally in the system for future comparisons</li>
+                <li>Similarity scores are based on algorithmic comparison and should be reviewed by instructors</li>
+                <li>The system does not check against external sources or the internet</li>
+                <li>Maximum file size: 16MB</li>
+            </ul>
+        </section>
+    </div>
+</div>
+{% endblock %}

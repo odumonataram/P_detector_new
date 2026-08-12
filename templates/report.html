@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Plagiarism Report - {{ submission.student_name }}{% endblock %}
+
+{% block content %}
+<div class="report-page">
+    <div class="page-header">
+        <h1>Plagiarism Report</h1>
+        <div class="report-actions">
+            <a href="{{ url_for('download_report', report_file=report_file) }}" 
+               class="btn btn-primary" download>
+                📥 Download Report
+            </a>
+            <a href="{{ url_for('view_submissions') }}" class="btn btn-secondary">
+                ← Back to Submissions
+            </a>
+        </div>
+    </div>
+    
+    <div class="report-container">
+        {{ report_content|safe }}
+    </div>
+</div>
+{% endblock %}
